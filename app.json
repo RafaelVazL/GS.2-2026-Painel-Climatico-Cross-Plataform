@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Painel Municipal de Chuva",
+    "slug": "painel-territorial",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "backgroundColor": "#0c1322",
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
