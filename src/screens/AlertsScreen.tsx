@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { ForecastFeedback } from "../componentes/ForecastFeedback";
 import { Screen, ScreenTitle } from "../componentes/Screen";
 import { useWeather } from "../context/WeatherContext";
-import { confidenceLevel, forecastClock, formatNumber, type AlertHour } from "../domain/forecast";
+import { confidenceLevel, forecastClock, formatNumber, formatProbability, type AlertHour } from "../domain/forecast";
 import { colors, fonts, ui } from "../styles/theme";
 
 const confidenceColors = {
@@ -17,7 +17,7 @@ function AlertCard({
 }: { alert: AlertHour; threshold: number; clock: ReturnType<typeof forecastClock> }) {
   const confidence = confidenceLevel(alert.probability);
   const interval = clock.interval(alert.endTime);
-  const probability = formatNumber.format(alert.probability) + "%";
+  const probability = formatProbability(alert.probability) + "%";
   const amount = alert.precipitation === null
     ? "Indisponível"
     : formatNumber.format(alert.precipitation) + " mm";

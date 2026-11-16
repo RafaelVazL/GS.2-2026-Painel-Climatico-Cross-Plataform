@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   confidenceLevel,
   forecastClock,
+  formatProbability,
   HOUR_SECONDS,
   parseThreshold,
   rainAlerts,
@@ -22,6 +23,10 @@ test("inclui a probabilidade no limite exato e ignora a probabilidade ausente", 
 
 test("classifica a confiança nos limites de 50% e 80%", () => {
   assert.deepEqual([49, 50, 79, 80].map(confidenceLevel), ["Baixa", "Moderada", "Moderada", "Alta"]);
+});
+
+test("exibe a probabilidade com vírgula decimal e mantém a precisão", () => {
+  assert.deepEqual([0, 70.125, 100].map(formatProbability), ["0", "70,125", "100"]);
 });
 
 test("descarta intervalos encerrados e limita a previsão a 48 janelas", () => {

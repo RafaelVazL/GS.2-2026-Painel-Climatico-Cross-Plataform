@@ -6,7 +6,7 @@ import { ForecastFeedback } from "../componentes/ForecastFeedback";
 import { HourChart } from "../componentes/HourChart";
 import { Screen } from "../componentes/Screen";
 import { useWeather } from "../context/WeatherContext";
-import { FORECAST_HOURS, forecastClock, formatNumber } from "../domain/forecast";
+import { FORECAST_HOURS, forecastClock, formatProbability } from "../domain/forecast";
 import { colors, fonts, ui } from "../styles/theme";
 import type { RootTabs } from "../types/navigation";
 
@@ -77,7 +77,7 @@ export function DashboardScreen({ navigation }: BottomTabScreenProps<RootTabs, "
                 {nextAlert && interval ? (
                   <>
                     <Text style={styles.heroTime}>{interval.time}</Text>
-                    <Text style={ui.body}>{interval.date} · {formatNumber.format(nextAlert.probability)}% de chance de chuva</Text>
+                    <Text style={ui.body}>{interval.date} · {formatProbability(nextAlert.probability)}% de chance de chuva</Text>
                   </>
                 ) : (
                   <>

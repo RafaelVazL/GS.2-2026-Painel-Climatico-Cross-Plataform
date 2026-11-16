@@ -72,3 +72,7 @@ export function forecastClock(timezone: string) {
 export const formatNumber = new Intl.NumberFormat("pt-BR", {
   maximumFractionDigits: 2,
 });
+
+export function formatProbability(probability: number) {
+  return probability.toString().replace(".", ",");
+}
