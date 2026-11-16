@@ -4,4 +4,4 @@ André Martins
 Kauã Peres
 
 GitHub
-[URL do novo repositório da equipe]
+https://github.com/RafaelVazL/GS.2-2026-Painel-Climatico-Cross-Plataform
